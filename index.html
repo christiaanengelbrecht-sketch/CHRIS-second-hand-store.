@@ -1,0 +1,464 @@
+  <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SecondHand Pro Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      background: #34495e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      background: #2ecc71;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: #27ae60;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .cart-counter {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      background: #e74c3c;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      z-index: 999;
+    }
+
+    .category-section {
+      margin-bottom: 50px;
+    }
+
+    .category-section h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .product-info .price {
+      color: #27ae60;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .product-info button {
+      background: #2980b9;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product-info button:hover {
+      background: #1f6391;
+    }
+
+    @media screen and (max-width: 768px) {
+      .search-bar input {
+        width: 90%;
+      }
+
+      .products {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cart-counter">Cart: <span id="cart-count">0</span></div>
+
+  <header>
+    <h1>SecondHand Pro Store   <u>  made by CHRISTIAAN CHRISTOFFEL ENGELBRECHT[Vir EBW SBA03 TAAK003 PROJEK 050]</u></h1>
+    <p>Your trusted source for <u> TOP quality second-hand goods</u></p>
+  </header>
+
+  <nav>
+    <a href="#clothing">Clothing</a>
+    <a href="#furniture">Furniture</a>
+    <a href="#electronics">Electronics</a>
+    <a href="#tools">Tools</a>
+    <a href="#books">Books</a> 
+    <a href="#Sell Your Item">SELL</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="searchProducts()"/>
+    </div>
+
+    <!-- Category: Clothing -->
+    <div class="category-section" id="clothing">
+      <h2>Clothing</h2>
+      <div class="products">
+        <div class="product" data-name="Leather Jacket">
+          <img src=""https://www.libertyleathergoods.com/vintage-leather-jacket.jpg"" alt="Leather Jacket">
+          <div class="product-info">
+            <h3>Leather Jacket</h3>
+            <p>Stylish and durable, great for all seasons.</p>
+            <div class="price">$25</div>
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product" data-name="Vintage Dress">
+          <img src="https://via.placeholder.com/250x180?text=Vintage+Dress" alt="Vintage Dress">
+          <div class="product-info">
+            <h3>Vintage Dress</h3>
+            <p>Elegant and timeless fashion piece.</p>
+            <div class="price">$18</div>
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Furniture -->
+    <div class="category-section" id="furniture">
+      <h2>Furniture</h2>
+      <div class="products">
+        <div class="product" data-name="Wooden Chair">
+          <img src="https://via.placeholder.com/250x180?text=Wooden+Chair" alt="Wooden Chair">
+          <div class="product-info">
+            <h3>Wooden Chair</h3>
+            <p>Sturdy chair perfect for dining or office use.</p>
+            <div class="price">$30</div>
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product" data-name="Bookshelf">
+          <img src="https://via.placeholder.com/250x180?text=Bookshelf" alt="Bookshelf">
+          <div class="product-info">
+            <h3>Bookshelf</h3>
+            <p>5-tier bookshelf made of reclaimed wood.</p>
+            <div class="price">$45</div>
+            <button onclick="addToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Category: Electronics -->
+    <div class="category-section" id="electronics">
+      <h2>Electronics</h2>
+      <div class="products">
+        <div class="product" data-name="Smartphone">
+          <img src="https://via.placeholder.com/250x180?text=Smartphone" alt="Smartphone" />
+          <div class="product-info">
+            <h3>Smartphone</h3>
+            <p>Gently used smartphone with excellent battery life.</p>
+            <div class="price">$120</div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="cancelItem()" class="cancel-btn">Cancel Item</button>
+          </div>
+        </div>
+        <div class="product" data-name="Laptop">
+          <img src="https://via.placeholder.com/250x180?text=Laptop" alt="Laptop" />
+          <div class="product-info">
+            <h3>Laptop</h3>
+            <p>Reliable laptop perfect for work or study.</p>
+            <div class="price">$300</div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="cancelItem()" class="cancel-btn">Cancel Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Tools -->
+    <div class="category-section" id="tools">
+      <h2>Tools</h2>
+      <div class="products">
+        <div class="product" data-name="Electric Drill">
+          <img src="https://via.placeholder.com/250x180?text=Electric+Drill" alt="Electric Drill" />
+          <div class="product-info">
+            <h3>Electric Drill</h3>
+            <p>Powerful drill, perfect for home projects.</p>
+            <div class="price">$50</div>
+            <button onclick="addToCart()">Add to Cart</button>
+            
+          </div>
+        </div>
+        <div class="product" data-name="Hammer Set">
+          <img src="https://via.placeholder.com/250x180?text=Hammer+Set" alt="Hammer Set" />
+          <div class="product-info">
+            <h3>Hammer Set</h3>
+            <p>Includes various hammer sizes for every task.</p>
+            <div class="price">$20</div>
+            <button onclick="addToCart()">Add to Cart</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Books -->
+    <div class="category-section" id="books">
+      <h2>Books</h2>
+      <div class="products">
+        <div class="product" data-name="Science Fiction Novel">
+          <img src="https://via.placeholder.com/250x180?text=Science+Fiction+Novel" alt="Science Fiction Novel" />
+          <div class="product-info">
+            <h3>Science Fiction Novel</h3>
+            <p>A thrilling adventure in a distant galaxy.</p>
+            <div class="price">$7</div>
+            <button onclick="addToCart()">Add to Cart</button>
+             </div>
+        </div>
+        <div class="product" data-name="Cookbook">
+
+
+    <!-- You can continue with more categories like Electronics, Tools, Books -->
+
+  </div>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart() {
+      cartCount++;
+      document.getElementById("cart-count").innerText = cartCount;
+    }
+
+    function searchProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+
+      products.forEach(product => {
+        const name = product.getAttribute('data-name').toLowerCase();
+        if (name.includes(input)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+
+
+
+
+
+
+<!-- Category: Sell Your Item -->
+<div class="category-section" id="Sell Your Item">
+  <h2>Sell Your Item</h2>
+  <form style="background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto;">
+    <label for="sellerName">Full Name:</label>
+    <input type="text" id="sellerName" name="sellerName" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 10px; margin-bottom: 15px;">
+
+    <label for="itemTitle">Item Title:</label>
+    <input type="text" id="itemTitle" name="itemTitle" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+
+    <label for="category">Item Category:</label>
+    <select id="category" name="category" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+      <option value="">-- Select Category --</option>
+      <option value="clothing">Clothing</option>
+      <option value="furniture">Furniture</option>
+      <option value="electronics">Electronics</option>
+      <option value="tools">Tools</option>
+      <option value="books">Books</option>
+    </select>
+
+    <label for="description">Item Description:</label>
+    <textarea id="description" name="description" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 15px;"></textarea>
+
+    <label for="price">Price ($):</label>
+    <input type="text" id="price" name="price" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
+
+    <label for="image">Upload Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" style="margin-bottom: 20px;">
+
+    <button type="submit" style="background: #2980b9; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+      Submit Item
+    </button>
+  </form>
+</div>
+
+
+
+
+
+<!-- Contact Numbers -->
+<div class="category-section" id="contact">
+  <h2>Contact Numbers</h2>
+  <div style="background: white; padding: 20px; border-radius: 8px; max-width: 600px;">
+    <p><strong>Customer Support:</strong> +1 800-123-4567</p>
+    <p><strong>WhatsApp Sales:</strong> +1 800-987-6543</p>
+    <p><strong>Main Office:</strong> +1 555-321-7654</p>
+    <p><strong>Email:</strong> support@secondhandpro.com</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+footer style="background: #2c3e50; color: white; padding: 20px; text-align: center; margin-top: 50px;">
+  <p>&copy; 2025 SecondHand Pro Store. All rights reserved.</p>
+  <p>
+    Follow us:
+    <a href="#" style="color: #2ecc71; text-decoration: none;">Facebook</a> |
+    <a href="#" style="color: #2ecc71; text-decoration: none;">Instagram</a> |
+    <a href="#" style="color: #2ecc71; text-decoration: none;">Twitter</a>
+  </p>
+</footer>
+
+
+
+
+
+<button onclick="scrollToTop()" id="topBtn" title="Go to top"
+  style="position: fixed; bottom: 30px; right: 20px; z-index: 999; padding: 12px 18px; background: #2ecc71; color: white; border: none; border-radius: 50%; font-size: 18px; display: none; cursor: pointer;">
+  ↑
+</button>
+
+
+
+
+<script>
+  let cartCount = 0;
+
+  function addToCart() {
+    cartCount++;
+    document.getElementById("cart-count").innerText = cartCount;
+  }
+
+  function searchProducts() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+      const name = product.getAttribute('data-name').toLowerCase();
+      product.style.display = name.includes(input) ? "block" : "none";
+    });
+  }
+
+  // Back to top button logic
+  const topBtn = document.getElementById("topBtn");
+  window.onscroll = () => {
+    topBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+
+
+
+
+nav {
+  flex-direction: column;
+  align-items: center;
+}
+
+nav a {
+  width: 90%;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+TEST 
+
+
+
+
+
